@@ -3,7 +3,7 @@
 export function showRegisterView() {
     return `
     <main>
-        <div class="container-register">
+        <div class="register-card">
             <h2>Register</h2>
 
             <form id="register-form">
@@ -16,7 +16,7 @@ export function showRegisterView() {
 
             <p class="register-switch">
                 Already have an account? 
-                <a href="#" id="login-link" data-link>Login</a>
+                <a href="/login" class="link" data-link >Login Here!</a>
             </p>
         </div>
     </main>
