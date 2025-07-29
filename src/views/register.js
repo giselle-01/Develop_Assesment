@@ -1,11 +1,14 @@
-//Here goes the Register view.
+//This is where the Register view goes.
 
+//Function exported with the HTML structure of the Register view.
 export function showRegisterView() {
     return `
     <main>
+        <!--Container for the register form--!>
         <div class="register-card">
             <h2>Register</h2>
 
+            <!--Register form--!>
             <form id="register-form">
                 <input type="text" id="name" placeholder="Full Name" autocomplete="Full name" required>
                 <input type="email" id="email" placeholder="Email" autocomplete="email" required>
@@ -14,6 +17,7 @@ export function showRegisterView() {
                 <button type="submit" id="btn-register">Register</button>
             </form>
 
+            <!--Message and link to switch to login page--!>
             <p class="register-switch">
                 Already have an account? 
                 <a href="/login" class="link" data-link >Login Here!</a>

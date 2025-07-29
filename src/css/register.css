@@ -1,4 +1,6 @@
+/*Here goes register styles*/
 
+/* Main container styling */
 main {
     background: #F4F4F5;
     padding: 2rem;
@@ -11,7 +13,7 @@ main {
 
     flex-grow: 1;
 }
-
+/* Register form container */
 .register-card {
 
     display: flex;
@@ -28,7 +30,7 @@ main {
     margin: 8%;
 
 }
-
+/* Form styling */
 form {
     display:flex;
     flex-direction: column;
@@ -37,14 +39,14 @@ form {
     gap: 0.5rem;
 
 }
-
+/* Input field styling */
 input {
     padding: 3%;
     margin-bottom: 10%;
     border: 1px solid #E7E5E4;
     border-radius: 4px;
 }
-
+/* Button base style */
 button {
   border: none;
 
@@ -54,17 +56,17 @@ button {
   padding: 5px;
   border-radius: 3px;
 }
-
+/* Button hover effect */
 button:hover {
-  color: black;
+  color: white;
   background-color: #AD46FF;
 }
-
+/* Link base style */
 a {
     color: #5D0EC0;
     text-decoration: none;
 }
-
+/* Link hover effect */
 a:hover {
     color: #AD46FF;
 }

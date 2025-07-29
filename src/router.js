@@ -1,6 +1,7 @@
 //Here goes the Router configuration.
 import { showLoginView } from "./views/login.js";
 import { showRegisterView } from "./views/register.js";
+import { showAdminDashboard } from "./views/dashboardAdmin.js";
 
 const routes = {
     "/": {
@@ -18,6 +19,11 @@ const routes = {
         afterRender: "settingsRegister",
         private: false
     },
+    "/dashboardAdmin": {
+        showView: showAdminDashboard(),
+        afterRender:"settingsDashboardAdmin",
+        private: false
+    }
 }
 
 export function router () {
