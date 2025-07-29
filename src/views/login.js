@@ -15,10 +15,10 @@ export function showLoginView() {
         <button type="submit">Log in</button>
       </form>
 
-      <!--Message and link to switch to registration page--!>
+      <!--Message and link to switch to register page--!>
       <p class="login-switch">
         Don't have an account? 
-        <a href="/register" class="link" data-link >Register Here!</a>
+        <a href="/register" class="link" id="register-link" data-link >Register Here!</a>
       </p>
     </div>
   </main>

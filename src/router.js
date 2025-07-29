@@ -1,12 +1,16 @@
 //Here goes the Router configuration.
+
+
 import { showLoginView } from "./views/login.js";
 import { showRegisterView } from "./views/register.js";
-import { showAdminDashboard } from "./views/dashboardAdmin.js";
+import { showAdminView } from "./views/dashboardAdmin.js";
+
+import { interactiveLogin } from "./js/interactiveLogin.js";
 
 const routes = {
     "/": {
         showView: showLoginView(),
-        afterRender: "settingsLogin",
+        afterRender: interactiveLogin(),
         private: false
     },
     "/login":{
@@ -20,23 +24,36 @@ const routes = {
         private: false
     },
     "/dashboardAdmin": {
-        showView: showAdminDashboard(),
+        showView: showAdminView(),
         afterRender:"settingsDashboardAdmin",
         private: false
     }
 }
 
-export function router () {
-    const path = window.location.pathname || "/";
-    const app = document.getElementById("app");
-    const currentRoute = routes[path];
+export async function router() {
+  const app = document.getElementById("app");
 
-    if (currentRoute) {
-        app.innerHTML = currentRoute.showView;
+  //Take pathname and see if it has a route
+  const path = window.location.pathname;
+  const route = routes[path] || routes["/404"];
 
-        if (typeof currentRoute.afterRender === "function") {
-            currentRoute.afterRender();
-        }
+  try {
+    //Take html
+    const file = await fetch(route.path);
+
+    //Load html in document
+    app.innerHTML = content;
+
+    //Load component JS
+    if (route.setup) {
+      route.setup();
     }
+  } catch (error) {
+    redirectTo("/notFound");
+  }
+}
 
+export function redirectTo(path) {
+  window.history.pushState({}, "", `${path}`);
+  return router();
 }

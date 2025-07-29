@@ -1,7 +1,7 @@
 //This is where the Admin Dashboard view goes.
 
 //Function exported with the HTML structure of the Admin dashboard view.
-export function showAdminDashboard() {
+export function showAdminView() {
     return `
     <main>
         <!-- Profile section for admin user -->
