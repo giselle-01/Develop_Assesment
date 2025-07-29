@@ -1,7 +1,11 @@
-import { router } from "./router";
+import './js/api.js';
+import './js/auth.js';
+import { router } from './router.js';
 
-window.addEventListener('popstate', router);
-window.addEventListener('load', router);
 window.addEventListener('DOMContentLoaded', router);
-
-router();
+window.addEventListener('hashchange', router);
+window.addEventListener('load', () => {
+  if (window.location.hash === '') {
+    window.location.hash = '#/404';
+  }
+});

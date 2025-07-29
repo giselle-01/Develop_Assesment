@@ -2,7 +2,7 @@
 
 //Function exported with the HTML structure of the Register view.
 export function showRegisterView() {
-    return `
+    document.getElementById('app').innerHTML = `
     <main>
         <!--Container for the register form--!>
         <div class="register-card">
@@ -20,9 +20,27 @@ export function showRegisterView() {
             <!--Message and link to switch to login page--!>
             <p class="register-switch">
                 Already have an account? 
-                <a href="/login" class="link" data-link >Login Here!</a>
+                <a href="#/login" class="link" data-link >Login Here!</a>
             </p>
         </div>
     </main>
     `;
+
+    document.getElementById('register-form').onsubmit = async e => {
+        e.preventDefault();
+        const name = document.getElementById("name");
+        const email = document.getElementById("email");
+        const password = document.getElementById("password");
+        const confirmPassword = document.getElementById("confirm-password");
+
+        try {
+            await auth.login(e.target.name.value, e.target.email.value, e.target.password.value, e.target.confirmPassword.value);
+            location.hash = '#/dashboard';
+            router();
+
+        } catch (err) {
+            alert(err.message);
+        }
+    };
+    
 }

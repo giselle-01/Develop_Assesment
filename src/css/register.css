@@ -51,7 +51,7 @@ button {
   border: none;
 
 
-  background-color: #5D0EC0;
+  background-color: #37BC7D;
   color: white;
   padding: 5px;
   border-radius: 3px;
@@ -59,14 +59,14 @@ button {
 /* Button hover effect */
 button:hover {
   color: white;
-  background-color: #AD46FF;
+  background-color: #5EE9B5;
 }
 /* Link base style */
 a {
-    color: #5D0EC0;
+    color: #37BC7D;
     text-decoration: none;
 }
 /* Link hover effect */
 a:hover {
-    color: #AD46FF;
+    color: #5EE9B5;
 }

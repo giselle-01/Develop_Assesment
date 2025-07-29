@@ -1,59 +1,37 @@
-//Here goes the Router configuration.
 
+import { auth } from './js/auth';
 
-import { showLoginView } from "./views/login.js";
-import { showRegisterView } from "./views/register.js";
-import { showAdminView } from "./views/dashboardAdmin.js";
-
-import { interactiveLogin } from "./js/interactiveLogin.js";
+import { showLoginView } from './views/login.js';
+import { showRegisterView } from './views/register';
+import { dashboardView  } from './views/dashboard';
+import { notFound } from './views/404';
 
 const routes = {
-    "/": {
-        showView: showLoginView(),
-        afterRender: interactiveLogin(),
-        private: false
-    },
-    "/login":{
-        showView: showLoginView(),
-        afterRender: "settingsLogin",
-        private: false
-    },
-    "/register": {
-        showView: showRegisterView(),
-        afterRender: "settingsRegister",
-        private: false
-    },
-    "/dashboardAdmin": {
-        showView: showAdminView(),
-        afterRender:"settingsDashboardAdmin",
-        private: false
+    "#/": showLoginView,
+    "#/login": showLoginView,
+    "#/register": showRegisterView,
+    "#/dashboard": dashboardView,
+    "#/404": notFound,
+};
+
+export function router() {
+    const path = location.hash || '#/login';
+    const user = auth.getUser();
+
+    if (path.startsWith('#/dashboard') && !auth.isAuthenticated()) {
+        location.hash = '#/login';
+        return;
     }
-}
 
-export async function router() {
-  const app = document.getElementById("app");
-
-  //Take pathname and see if it has a route
-  const path = window.location.pathname;
-  const route = routes[path] || routes["/404"];
-
-  try {
-    //Take html
-    const file = await fetch(route.path);
-
-    //Load html in document
-    app.innerHTML = content;
-
-    //Load component JS
-    if (route.setup) {
-      route.setup();
+    if ((path === '#/login' || path === '#/register') && auth.isAuthenticated()) {
+        location.hash = '#/dashboard';
+        return;
     }
-  } catch (error) {
-    redirectTo("/notFound");
-  }
-}
 
-export function redirectTo(path) {
-  window.history.pushState({}, "", `${path}`);
-  return router();
+    const view = routes[path];
+    if (view) {
+        view();
+    } else {
+        notFound();
+    }
 }

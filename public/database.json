@@ -1,0 +1,22 @@
+{
+    "users": [
+        {
+            "id": "01",
+            "name": "Gise",
+            "email": "gigi@gmail.com",
+            "password": "123"
+
+        }
+    ],
+
+    "operations": [
+        {
+            "id": "",
+            "description": "",
+            "amount": "",
+            "type": "",
+            "category": "",
+            "date": ""
+        }
+    ]
+}
