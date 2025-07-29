@@ -1,17 +1,18 @@
 
 /* Reset body and html to remove all outer spacing */
 html, body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+/* Apply reset and box-sizing to all elements */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 
@@ -33,7 +34,9 @@ main {
     box-sizing: border-box;
 }
 
+/* Sidebar panel for profile and navigation */
 .profile-article {
+
     background: #DAB2FF;
     height: 100vh;
     width: 15vw;
@@ -55,7 +58,6 @@ main {
     justify-content: center;
     align-items: center;
     gap: 1rem;
-
 }
 
 .nav-btns {
@@ -64,6 +66,7 @@ main {
     gap: 1rem;
 }
 
+/* Main content area where events are displayed */
 .events-manager {
     flex: 1;
     padding: 0.5rem 1rem;
@@ -94,7 +97,6 @@ th {
     padding: 0.5rem 0.3rem;
     text-align: center;
     vertical-align: middle;
-
 }
 
 td {
@@ -104,18 +106,19 @@ td {
     border-radius: 2px;
 }
 
+/* Specific column for images */
 #td-img {
     width: 15%;
 }
 
-
+/* Profile image styling */
 #img1 {
-
     width: 75%;
     height: 40%;
     border-radius: 50%;
 }
 
+/* Event image styling */
 #img2 {
     width: 70%;
     height: 70%;
@@ -123,7 +126,7 @@ td {
     margin: 0;
 }
 
+/* Navigation button width */
 .button-nav {
     width: 10rem;
-
 }
