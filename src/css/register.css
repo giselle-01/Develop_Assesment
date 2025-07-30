@@ -49,9 +49,7 @@ input {
 /* Button base style */
 button {
   border: none;
-
-
-  background-color: #37BC7D;
+  background-color: #3BB8DB;
   color: white;
   padding: 5px;
   border-radius: 3px;
@@ -59,14 +57,14 @@ button {
 /* Button hover effect */
 button:hover {
   color: white;
-  background-color: #5EE9B5;
+  background-color: #46ECD5;
 }
 /* Link base style */
 a {
-    color: #37BC7D;
+    color: #3BB8DB;
     text-decoration: none;
 }
 /* Link hover effect */
 a:hover {
-    color: #5EE9B5;
+    color: #46ECD5;
 }

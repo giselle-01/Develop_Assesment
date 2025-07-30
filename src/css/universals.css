@@ -13,6 +13,6 @@ body {
   min-width: 200px;
 }
 
- .hidden {
+.hidden {
   display: none !important;
 }

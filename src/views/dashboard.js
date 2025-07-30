@@ -18,10 +18,10 @@ export function dashboardView() {
                     <li><button id="btn-logout">Log Out</button></li>
                 </ul>
             </nav>
-        <header>
+        </header>
 
         <!--Balance section--!>
-        <section id="#" class="balance-section">
+        <section id="" class="balance-section">
 
             <!--Balance card--!>
             <article class="balance-article">
@@ -36,7 +36,7 @@ export function dashboardView() {
             <!--Filters card--!>
             <article class="filters-article">
                 <h2>Filters</h2>
-                <a href="#/dashboard" class="link" data-link>Mostrar filtros</a>
+                <a href="#/dashboard" id="show-filters" class="link" data-link>Mostrar filtros</a>
                 <div class=hidden-filters>
                     <label for="types">Types:</label>
                     <select id="types">
@@ -73,11 +73,27 @@ export function dashboardView() {
         </section>
     </main>
     `;
+    //Logout button function.
     document.getElementById('btn-logout').onclick = (e) => {
         e.preventDefault();
         auth.logout(); //Call the logout function from auth.js
         location.hash = '#/login'; //Redirect to login page
         router(); //Call the router to update the view
+    };
+
+    //Function to show and hide filters.
+    document.getElementById('show-filters').onclick = (e) => {
+        e.preventDefault();
+
+        const filters = document.querySelector('.hidden-filters');
+        if (filters.classList.contains('hidden')) {
+            filters.classList.remove('hidden');
+            e.target.textContent = 'Hide filters';
+        }
+        else {
+            filters.classList.add('hidden');
+            e.target.textContent = 'Show filters';
+        }
     }
 }
 

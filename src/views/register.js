@@ -1,6 +1,7 @@
 //This is where the Register view goes.
 
 //Function exported with the HTML structure of the Register view.
+
 export function showRegisterView() {
     document.getElementById('app').innerHTML = `
     <main>
@@ -28,14 +29,10 @@ export function showRegisterView() {
 
     document.getElementById('register-form').onsubmit = async e => {
         e.preventDefault();
-        const name = document.getElementById("name");
-        const email = document.getElementById("email");
-        const password = document.getElementById("password");
-        const confirmPassword = document.getElementById("confirm-password");
 
         try {
-            await auth.login(e.target.name.value, e.target.email.value, e.target.password.value, e.target.confirmPassword.value);
-            location.hash = '#/dashboard';
+            await auth.register(e.target.name.value, e.target.email.value, e.target.password.value, e.target.confirmPassword.value);
+            location.hash = '#/login';
             router();
 
         } catch (err) {
